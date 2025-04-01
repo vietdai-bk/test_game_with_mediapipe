@@ -19,7 +19,7 @@ with mp_hands.Hands(min_detection_confidence=0.5, max_num_hands=2, min_tracking_
             for hand_landmarks in results.multi_hand_landmarks:
                 for i, landmark in enumerate(hand_landmarks.landmark):
                     h, w, _ = frame.shape
-                    x, y = int(landmark.x * w), int(landmark.y * h)
+                    x, y = int(landmark.x * w), int(landmark.y * h) ## Tọa độ từng đốt ngón tay
                     cv2.putText(frame, str(i), (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
                 mp_draw.draw_landmarks(frame, hand_landmarks)
