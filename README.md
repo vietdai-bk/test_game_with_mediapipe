@@ -29,7 +29,7 @@ Chạy file ```battelgame.py```
 python battelgame.py
 ```
 Sau khi chạy sẽ thấy camera được khởi động, cửa sổ camera hiện lên.  
-Bật game ở link trên [Here]([https://poki.com/en/g/stickman-hook](https://poki.com/en/g/12-minibattles)).  
+Bật game ở link trên [Here](https://poki.com/en/g/12-minibattles).  
 ### Điều khiển:
 - Nhớ chọn vào cửa sổ game để khi nhận lệnh nhấn các nút áp dụng vào game.
 - Giơ bàn tay trước camera, có thể chơi 2 người (hoặc dùng 2 tay để chơi), ngón cái và ngón trỏ chạm nhau để nhấn các phím A đối với người 1 và L đối với người 2.
