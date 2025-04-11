@@ -1,13 +1,19 @@
 import cv2
 import mediapipe as mp
-from pynput import keyboard
+import pyautogui
 import math
+import webbrowser
+
+url = "https://poki.com/en/g/12-minibattles"
+webbrowser.open(url)
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands=2, min_detection_confidence=0.7)
 mp_drawing = mp.solutions.drawing_utils
 
-controller = keyboard.Controller()
+pyautogui.FAILSAFE = True
+pyautogui.PAUSE = 0.01
+
 key_A_pressed = False
 key_L_pressed = False
 
@@ -32,23 +38,24 @@ while cap.isOpened():
             if idx == 0:
                 if distance < DISTANCE_THRESHOLD:
                     if not key_A_pressed:
-                        controller.press('a')
+                        pyautogui.keyDown('a')
                         key_A_pressed = True
                 else:
                     if key_A_pressed:
-                        controller.release('a')
+                        pyautogui.keyUp('a')
                         key_A_pressed = False
 
             elif idx == 1:
                 if distance < DISTANCE_THRESHOLD:
                     if not key_L_pressed:
-                        controller.press('l')
+                        pyautogui.keyDown('l')
                         key_L_pressed = True
                 else:
                     if key_L_pressed:
-                        controller.release('l')
+                        pyautogui.keyUp('l')
                         key_L_pressed = False
-
+                        
+    frame = cv2.resize(frame, (frame.shape[1]//2, frame.shape[0]//2))
     cv2.imshow('Game Control', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

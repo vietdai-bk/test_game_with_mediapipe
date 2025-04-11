@@ -2,6 +2,10 @@ import cv2
 import mediapipe as mp
 import pyautogui
 import time
+import webbrowser
+
+url = "https://poki.com/en/g/stickman-hook"
+webbrowser.open(url)
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.8, min_tracking_confidence=0.8)
@@ -37,20 +41,21 @@ while cap.isOpened():
         for hand_landmarks in results.multi_hand_landmarks:
             mp_draw.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
             
-            if is_hand_open(hand_landmarks.landmark):
+            if not is_hand_open(hand_landmarks.landmark):
                 if not is_space_pressed:
                     pyautogui.keyDown('space')
                     is_space_pressed = True
                 cv2.putText(frame, "Space Pressed", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            elif not is_hand_open(hand_landmarks.landmark) and is_space_pressed:
+            elif is_hand_open(hand_landmarks.landmark) and is_space_pressed:
                 pyautogui.keyUp('space')
                 is_space_pressed = False
                 cv2.putText(frame, "Space Released", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     else:
         cv2.putText(frame, "No Hand - Ready", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-
-    cv2.imshow('Geometry Dash Controller', frame)
+    
+    frame = cv2.resize(frame, (frame.shape[1]//2, frame.shape[0]//2))
+    cv2.imshow('StickmanHook Controller', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
