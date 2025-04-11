@@ -34,7 +34,6 @@ while cap.isOpened():
 
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(frame_rgb)
-
     current_time = time.time()
 
     if results.multi_hand_landmarks:
@@ -50,13 +49,15 @@ while cap.isOpened():
                 pyautogui.keyUp('space')
                 is_space_pressed = False
                 cv2.putText(frame, "Space Released", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-
     else:
         cv2.putText(frame, "No Hand - Ready", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
     
     frame = cv2.resize(frame, (frame.shape[1]//2, frame.shape[0]//2))
+    window_name = 'StickmanHook Controller'
     cv2.imshow('StickmanHook Controller', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+    if cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1:
         break
 
 cap.release()
