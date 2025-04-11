@@ -2,6 +2,7 @@
 Link game:  
 - [Stickman hook](https://poki.com/en/g/stickman-hook)
 - [Geometry dash lite](https://geometrydash-lite.com/)
+- [12 MiniBattles Game](https://poki.com/en/g/12-minibattles)
 ## Cài đặt
 Clone source:  
 ```
