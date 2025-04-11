@@ -12,7 +12,7 @@ Cài đặt các thư viện cần thiết:
 pip install -r requirements.txt
 ```
 ## Chơi thử Stickman hook
-Tải trực tiếp tệp đã build ở phần releases [ở đây](https://github.com/vietdai-bk/test_game_with_mediapipe/releases/tag/stickmanhook) hoặc  
+Tải trực tiếp tệp đã build ở phần releases ([ở đây](https://github.com/vietdai-bk/test_game_with_mediapipe/releases/tag/stickmanhook)) hoặc  
 Chạy file ```stickmanhook.py```
 ```
 python stickmanhook.py
@@ -25,7 +25,7 @@ Bật game ở link trên [Stickman hook](https://poki.com/en/g/stickman-hook).
 - Nắm tay lại thì sẽ nhả nút space (không nhấn nút gì cả).
 
 ## Chơi thử 12-minibattles
-Tải trực tiếp tệp đã build ở phần releases [ở đây](https://github.com/vietdai-bk/test_game_with_mediapipe/releases/edit/12minibattles) hoặc  
+Tải trực tiếp tệp đã build ở phần releases ([ở đây](https://github.com/vietdai-bk/test_game_with_mediapipe/releases/edit/12minibattles)) hoặc  
 Chạy file ```battelgame.py```
 ```
 python battelgame.py
